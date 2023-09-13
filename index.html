@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passion for Pets </title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="image">
+        <img src="vetclinic_02.jpg" alt="" width="200" height="500">
+    </div>
+
+    <div class="content">
+        <h1 style="font-size:50px;color:black;">All pets deserve great vets</h1>
+        <p>we were made for saving animals</p>
+        <a href="#con" class="btn"> contact us <span class="fas fa-chevron-right"></span> </a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <h1 class="heading"> our <span>services</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-notes-medical"></i>
+            <h3>free checkups</h3>
+            <p>We ensure maximum health at minimum cost</p>
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-user-md"></i>
+            <h3>expert doctors</h3>
+            <p>Efficiency is our priority for you.</p>
+            
+        </div>
+
+        <div class="box">
+            <i class="fas fa-pills"></i>
+            <h3>medicines</h3>
+            <p>It's How Medicine Should Be</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>about</span> us </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="image/about-img.svg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Your Pets.Our mission. </h3>
+            <p>Never believe that animals suffer less than humans. Pain is the same for them that it is for us. Even worse, because they cannot help themselves.</p>
+            <p>We are skilled in treating for any kind of animal. Healing hands for paws. We are good in taking care of any animal.</p>
+            
+        </div>
+
+    </div>
+
+</section>
+
+<!-- about section ends -->
+
+<!-- doctors section starts  -->
+
+<section class="doctors" id="doctors">
+
+    <h1 class="heading"> our <span>doctors</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="doc-6.jpg" alt="">
+            <h3>John</h3>
+		<p style="font-size:20px;color:#16a085;">Rescuing wildlife, saving sea turtles, releasing elephants into the wild and performing life saving operations on dogs and cats</p>
+            <a href="#book" class="btn"> Consult now <span class="fas fa-chevron-right"></span> </a>
+            
+        </div>
+
+        <div class="box">
+            <img src="doc-2.jpg" alt="">
+            <h3>David</h3>
+		<p style="font-size:20px;color:#16a085;">Veterinarian skilled in treating various species and has expertise in wildlife photography and ecology.</p>
+            <a href="#book" class="btn"> Consult now <span class="fas fa-chevron-right"></span> </a>
+            
+        </div>
+
+        <div class="box">
+            <img src="doc-3.jpg" alt="">
+            <h3>Trevor</h3>
+		<p style="font-size:20px;color:#16a085;">Veterinarian and Conservationist with a Masters in Global Wildlife Health and Conservation from the University of Bristol, UK.</p>
+            <a href="#book" class="btn"> Consult now <span class="fas fa-chevron-right"></span> </a>
+            
+        </div>
+
+        <div class="box">
+            <img src="blog-1.jpg" alt="">
+            <h3>Jasmine</h3>
+		<p style="font-size:20px;color:#16a085;">She has extensive experience in treating diverse species as an urban wildlife veterinarian and has worked with GIZ India in biodiversity conservation. </p>
+            <a href="#book" class="btn"> Consult now <span class="fas fa-chevron-right"></span> </a>
+            
+        </div>
+
+        <div class="box">
+            <img src="doc-1.jpg" alt="">
+            <h3>Jenny</h3>
+		<p style="font-size:20px;color:#16a085;">With over 5 years of practical experience in the field, he has honed his expertise in providing compassionate medical care</p>
+            <a href="#book" class="btn"> Consult now <span class="fas fa-chevron-right"></span> </a>
+            
+        </div>
+
+        <div class="box">
+            <img src="doc-4.jpg">
+            <h3>Moran</h3>
+		<p style="font-size:20px;color:#16a085;">With over one year of experience as a Veterinary Physician where she has developed a strong foundation in providing comprehensive medical care for animals.</p>
+            <a href="#book" class="btn"> Consult now <span class="fas fa-chevron-right"></span> </a>
+            
+        </div>
+
+    </div>
+
+</section>
+
+<!-- doctors section ends -->
+
+<!-- booking section starts   -->
+
+<section class="book" id="book">
+
+    <h1 class="heading"> <span>book</span> now </h1>    
+
+    <div class="row">
+
+        <div class="image">
+            <img src="image/book-img.svg" alt="">
+        </div>
+
+        <form id="booking-form" onsubmit="myFunction()" action="./BookServlet" method="post">
+            <h3>book appointment</h3>
+	    <input type="text" placeholder="your name" class="box" name="username" id="username" required>
+            <input type="text" placeholder="pet type(Dog, Cat, Rabbit ....)" class="box" name="pet_type" id="pet_type" required>
+            <input type="number" placeholder="your phone number" class="box" name="phone" id="phone" required>
+            <input type="email" placeholder="your email" class="box" required>
+		<input type="date" placeholder="your consulation date" class="box" id="date" name="date" required>
+            <input type="text" placeholder="describe your treatment requirement" class="box" name="treatment" id="treatment" required>
+            <input type="submit" class="button" value="BOOK NOW">
+        </form>
+
+    </div>
+
+</section>
+
+<!-- booking section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer" id="con">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#home"> <i class="fas fa-chevron-right"></i> home </a>
+            <a href="#services"> <i class="fas fa-chevron-right"></i> services </a>
+            <a href="#about"> <i class="fas fa-chevron-right"></i> about </a>
+            <a href="#doctors"> <i class="fas fa-chevron-right"></i> doctors </a>
+            <a href="#book"> <i class="fas fa-chevron-right"></i> book </a>
+        </div>
+
+        <div class="box">
+            <h3>our services</h3>
+            <a href="#services"> <i class="fas fa-chevron-right"></i> free checkups </a>
+            <a href="#services"> <i class="fas fa-chevron-right"></i> expert doctors </a>
+            <a href="#services"> <i class="fas fa-chevron-right"></i> medicines </a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +123-456-7890 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +111-222-3333 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> shaikhanas@gmail.com </a>
+            <a href="#"> <i class="fas fa-envelope"></i> anasbhai@gmail.com </a>
+            <a href="#"> <i class="fas fa-map-marker-alt"></i> mumbai, india - 400104 </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- footer section ends -->
+
+<!-- custom js file link  -->
+<script>
+function myFunction() {
+  alert("Successfully Booked!!!");
+}
+</script>
+</body>
+</html>

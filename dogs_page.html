@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/e8fa2e31b4.js" crossorigin="anonymous"></script>
+<link href='https://fonts.googleapis.com/css?family=Patua One'rel='stylesheet' />
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:'Patua One',sans-serif;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .top-bar{
+            width: 80%;
+            height: 4rem;
+            background-color: #eee;
+            margin-bottom: 20px;
+            display: flex;
+            padding: 0px 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header{
+            width: 80%;
+            height: 100px;
+            background-color: pink;
+            margin-bottom: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar p{
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+        }
+        .navbar ul{
+            display: flex;
+            list-style: none;
+        }
+        .navbar ul li a{
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            padding: 7px 15px;
+        }
+        .navbar ul li a:hover{
+            background-color: white;
+            color: black;
+            border-radius: 3px;
+        }
+        .navbar-b{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .dropdown{
+            width: 130px;
+            text-align: center;
+            background-color: white;
+            border-radius: 3px;
+        }
+        select{
+            outline: none;
+            border: none;
+            background: none;
+            padding: 7px 10px 7px 0px;
+            color: black;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        select:hover{
+            color: #333;
+        }
+        .cart{
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 10px;
+            border-radius: 3px;
+            width: 80px;
+            font-size: 18px;
+        }
+        .cart p{
+            height: 22px;
+            width: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 22px;
+            background-color: pink;
+            color: white;
+        }
+        .container{
+            width: 80%;
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #root{
+            width: 70%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) ;
+            grid-gap: 20px;
+        }
+        .sidebar{
+            width: 30%;
+            border-radius: 5px;
+            background-color: #eee;
+            margin-left: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+         .head{
+    background-color: pink;
+    border-radius: 3px;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.foot{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 10px 0px;
+    border-top: 1px solid #333;
+}
+        .box{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        .img-box{
+            width: 50%;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .left{
+            width: 50%;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 60px;
+        }
+        img{
+            max-height: 90%;
+            max-width: 90%;
+            object-fit: cover;
+            object-position: center;
+        }
+.bottom{
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 110px;
+}
+h2{
+    font-size: 20px;
+    color: red;
+}
+        button{
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            padding: 10px 25px;
+            cursor: pointer;
+            color: white;
+        }
+        button:hover{
+            background-color: #333;
+        }
+.cart-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid #aaa;
+    border-radius: 3px;
+    margin: 10px 10px;
+}
+.row-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid goldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rowimg{
+    max-width: 43px;
+    max-height: 43px;
+    border-radius: 50%;
+}
+.fa-trash:hover{
+    cursor: pointer;
+    color: #333;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="navbar-b">
+            <div class="dropdown">
+                <select id="categorySelect" onchange="filterProducts()">
+                    <option value="All">All</option>
+                    <option value="Husky">Husky</option>
+                    <option value="Pug">Pug</option>
+                    <option value="Sheperd">Sheperd</option>
+                    <option value="Maltipoo">Maltipoo</option>
+                </select>
+            </div>
+            <div class="search">
+                <h1 style="color:yellow;font-size:40px;">Paws & Care</h1>
+            </div>
+            <div class="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p id="count">0</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="root"></div>
+        <div class="sidebar">
+            <div class="head">
+                <p>My Cart</p>
+            </div>
+            <div id="cartItem">Your cart is empty</div>
+            <div class="foot">
+                <h3>Total</h3>
+                <h2 id="total">Rs. 0.00</h2>
+<a href="pay.html">
+                    <button class="btn btn-primary btn-lg">Pay Now</button>
+                    </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const products = [
+    {
+        id: 1,
+        image: 'Lucy.jpg',
+        name: 'Lucy',
+        title: 'Maltipoo',
+        price: 'Rs. 120'
+    },
+    {
+        id: 2,
+        image: 'Milo.jpg',
+        name: 'Milo',
+        title: 'Husky',
+        price: 'Rs. 245'
+    },
+    {
+        id: 3,
+        image: 'Rosy.jpg',
+        name: 'Rosy',
+        title: 'Husky',
+        price: 'Rs. 160'
+    },
+    {
+        id: 4,
+        image: 'Zoe.jpg',
+        name: 'Zoe',
+        title: 'Husky',
+        price: 'Rs. 430'
+    },
+    {
+        id: 5,
+        image: 'Duke.jpg',
+        name: 'Duke',
+        title: 'Pug',
+        price: 'Rs. 265'
+    },
+    {
+        id: 6,
+        image: 'Tucker.jpg',
+        name: 'Tucker',
+        title: 'Shepherd',
+        price: 'Rs. 335'
+    },
+    {
+        id: 7,
+        image: 'Sandie.jpg',
+        name: 'Sandie',
+        title: 'Maltipoo',
+        price: 'Rs. 555'
+    },
+    {
+        id: 8,
+        image: 'Gracie.jpg',
+        name: 'Gracie',
+        title: 'Sheperd',
+        price: 'Rs. 450'
+    },
+    {
+        id: 9,
+        image: 'Bentley.jpg',
+        name: 'Bentley',
+        title: 'Sheperd',
+        price: 'Rs. 450'
+    },
+    {
+        id: 10,
+        image: 'Toby.jpg',
+        name: 'Toby',
+        title: 'Pug',
+        price: 'Rs. 450'
+    },
+{
+        id: 11,
+        image: 'Molly.jpg',
+        name: 'Molly',
+        title: 'Husky',
+        price: 'Rs. 450'
+    },
+{
+        id: 12,
+        image: 'Bella.jpg',
+        name: 'Bella',
+        title: 'Maltipoo',
+        price: 'Rs. 450'
+    },
+{
+        id: 13,
+        image: 'Daisy.jpg',
+        name: 'Daisy',
+        title: 'Maltipoo',
+        price: 'Rs. 450'
+    },
+
+];
+
+        function filterProducts() {
+            const categorySelect = document.getElementById('categorySelect');
+            const selectedCategory = categorySelect.value;
+            const rootDiv = document.getElementById('root');
+            rootDiv.innerHTML = '';
+
+            const filteredProducts = selectedCategory === 'All' ? products : products.filter(product => product.title === selectedCategory);
+
+            filteredProducts.forEach(product => {
+                const { id, image, title, price, name } = product;
+
+                const boxDiv = document.createElement('div');
+                boxDiv.classList.add('box');
+
+                const imgBoxDiv = document.createElement('div');
+                imgBoxDiv.classList.add('img-box');
+                const img = document.createElement('img');
+                img.src = image;
+                imgBoxDiv.appendChild(img);
+                boxDiv.appendChild(imgBoxDiv);
+
+                const leftDiv = document.createElement('div');
+                leftDiv.classList.add('left');
+                const nameP = document.createElement('p');
+                nameP.textContent = name;
+                const titleP = document.createElement('p');
+                titleP.textContent = title;
+                const priceH2 = document.createElement('h2');
+                priceH2.textContent = price;
+                const addButton = document.createElement('button');
+                addButton.textContent = 'Add to Cart';
+
+                // Add event listener to "Add to Cart" button
+                addButton.addEventListener('click', () => {
+                    const product = {
+                        image: image,
+                        title: title,
+                        price: price.slice(4), // Remove "$" from price
+                    };
+                    cart.push(product);
+                    displaycart();
+                });
+
+                leftDiv.appendChild(nameP);
+                leftDiv.appendChild(titleP);
+                leftDiv.appendChild(priceH2);
+                leftDiv.appendChild(addButton);
+                boxDiv.appendChild(leftDiv);
+
+                rootDiv.appendChild(boxDiv);
+            });
+        }
+
+        var cart = [];
+
+        function displaycart() {
+            let total = 0;
+            document.getElementById("count").innerHTML = cart.length;
+            const cartItemDiv = document.getElementById('cartItem');
+            const totalDiv = document.getElementById('total');
+
+            if (cart.length === 0) {
+                cartItemDiv.innerHTML = 'Your cart is empty';
+                totalDiv.innerHTML = 'Rs. 0.00';
+            } else {
+                cartItemDiv.innerHTML = cart
+                    .map(
+                        (item, index) => `
+                        <div class='cart-item'>
+                            <div class='row-img'>
+                                <img class='rowimg' src=${item.image}>
+                            </div>
+                            <p style='font-size:12px;'>${item.title}</p>
+                            <p style='font-size:10px;'>Price:Rs. ${item.price}</p>
+                            <i class="fas fa-trash" onclick="removeItem(${index})"></i>
+                        </div>
+                    `
+                    )
+                    .join('');
+
+                total = cart.reduce((acc, item) => acc + parseFloat(item.price), 0);
+                totalDiv.innerHTML = `Rs. ${total.toFixed(2)}`;
+            }
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            displaycart();
+        }
+
+        const categorySelect = document.getElementById('categorySelect');
+        categorySelect.addEventListener('change', filterProducts);
+
+        filterProducts();
+    </script>
+</body>
+</html>

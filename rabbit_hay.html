@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/e8fa2e31b4.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', sans-serif;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+	a{
+	    text-decoration:none;
+            color:black;
+	}
+        .fa-solid{
+            color: black;
+            margin-right: 10px;
+        }
+        .header{
+            width: 80%;
+            height: 200px;
+            background-color: pink;
+            margin-bottom: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar p{
+            font-size: 50px;
+            font-weight: bold;
+            color: black;
+        }
+        .cart{
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 10px;
+            border-radius: 3px;
+            width: 80px;
+            font-size: 18px;
+        }
+        .cart p{
+            height: 22px;
+            width: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 22px;
+            background-color: #4CAF50; 
+            color: white;
+        }
+        .container{
+            width: 80%;
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #root{
+            width: 70%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) ;
+            grid-gap: 20px;
+        }
+        .sidebar{
+            width: 30%;
+            border-radius: 5px;
+            background-color: #eee;
+            margin-left: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+	.head{
+    	    background-color: pink;
+    	    border-radius: 3px;
+    	    height: 40px;
+    	    padding: 10px;
+   	    margin-bottom: 20px;
+    	    color: white;
+    	    display: flex;
+    	    align-items: center;
+	}
+	.foot{
+    	    display: flex;
+    	    justify-content: space-between;
+    	    margin: 20px 0px;
+    	    padding: 10px 0px;
+            border-top: 1px solid #333;
+	}
+        .box{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        .img-box{
+            width: 50%;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .left{
+            width: 50%;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 60px;
+        }
+        img{
+            max-height: 90%;
+            max-width: 90%;
+            object-fit: cover;
+            object-position: center;
+        }
+	.bottom{
+    	    margin-top: 20px;
+     	    width: 100%;
+    	    text-align: center;
+    	    display: flex;
+            flex-direction: column;
+    	    align-items: center;
+    	    justify-content: space-between;
+    	    height: 110px;
+	}
+	h2{
+            font-size: 20px;
+            color: red;
+	}
+        button{
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            padding: 10px 25px;
+            cursor: pointer;
+            color: white;
+        }
+        button:hover{
+            background-color: #333;
+        }
+.cart-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    border-bottom: 1px solid #aaa;
+    border-radius: 3px;
+    margin: 10px 10px;
+}
+.row-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid goldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rowimg{
+    max-width: 43px;
+    max-height: 43px;
+    border-radius: 50%;
+}
+.fa-trash:hover{
+    cursor: pointer;
+    color: #333;
+}
+</style>
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+            <p><a href="supplies.html">Paws & Care</a></p>
+        </div>
+            <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
+    </div>
+    <div class="container">
+        <div id="root"></div>
+        <div class="sidebar">
+		<div class="head"><p>My Cart</p></div>
+                <div id="cartItem">Your cart is empty</div>
+                <div class="foot">
+                    <h3>Total</h3>
+                    <h2 id="total">₹ 0.00</h2>
+<a href="pay.html">
+                    <button class="btn btn-primary btn-lg">Pay Now</button>
+                    </a>
+                </div>
+	</div>
+    </div>
+    <script>
+        const product = [
+            {
+                id: 0,
+                image: 'sevvy.jpg',
+                title: 'SEVVY Iron Mesh Pet Cage',
+                price: '3299'
+            },
+            {
+                id: 1,
+                image: 'barrage.jpg',
+                title: 'Home Bargains Metal Rabbit Cage 24 inch ',
+                price: '1819'
+            },
+            {
+                id: 2,
+                image: 'royal.jpg',
+                title: 'Royal Pet Dog and Rabbit Cage (Blue, 36 Inch)',
+                price: '3200'
+            },
+            {
+                id: 3,
+                image: 'natlis.jpg',
+                title: 'NATLIS 1.5 Feet Bird Cage, House for parrots & birds,',
+                price: '549'
+            },
+            {
+                id: 4,
+                image: 'rhay.jpg',
+                title: 'Farm Fresh Timothy Hay Cube Treats for Rabbits',
+                price: '368'
+            },
+            {
+                id: 5,
+                image: 'carrier.jpg',
+                title: 'POPETPOP Rabbit Hay Bag Chinchilla Hay Feeder Rabbit ',
+                price: '735'
+            },
+        ];
+const categories = [...new Set(product.map((item)=>
+    {return item}))]
+    let i=0;
+document.getElementById('root').innerHTML = categories.map((item)=>
+{
+    var {image, title, price} = item;
+    return(
+        `<div class='box'>
+            <div class='img-box'>
+                <img class='images' src=${image}></img>
+            </div>
+        <div class='bottom'>
+        <p>${title}</p>
+        <h2>₹ ${price}.00</h2>`+
+        "<button onclick='addtocart("+(i++)+")'>Add to cart</button>"+
+        `</div>
+        </div>`
+    )
+}).join('')
+
+var cart =[];
+
+function addtocart(a){
+    cart.push({...categories[a]});
+    displaycart();
+}
+function delElement(a){
+    cart.splice(a, 1);
+    displaycart();
+}
+
+function displaycart(){
+    let j = 0, total=0;
+    document.getElementById("count").innerHTML=cart.length;
+    if(cart.length==0){
+        document.getElementById('cartItem').innerHTML = "Your cart is empty";
+        document.getElementById("total").innerHTML = "₹ "+0+".00";
+    }
+    else{
+        document.getElementById("cartItem").innerHTML = cart.map((items)=>
+        {
+            var {image, title, price} = items;
+            total=total+parseFloat(price);
+            document.getElementById("total").innerHTML = "₹ "+total+".00";
+            return(
+                `<div class='cart-item'>
+                <div class='row-img'>
+                    <img class='rowimg' src=${image}>
+                </div>
+                <p style='font-size:12px;'>${title}</p>
+                <h2 style='font-size: 15px;'>₹ ${price}.00</h2>`+
+                "<i class='fa-solid fa-trash' onclick='delElement("+ (j++) +")'></i></div>"
+            );
+        }).join('');
+    }
+
+    
+}
+</script>
+</body>
+</html>
